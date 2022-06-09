@@ -16,8 +16,8 @@ class Ray{
         strokeWeight(2);
         stroke(0);
         fill('pink');
-        text("P1: (" + p1x + ", " + p1y + ")", this.position.x+15, this.position.y+15)
-        text("P2: (" + p2x + ", " + p2y+ ")", this.direction.x+ this.position.x+15, this.direction.y + this.position.y+15)
+        text("P3: (" + p1x + ", " + p1y + ")", this.position.x+15, this.position.y+15)
+        text("P4: (" + p2x + ", " + p2y+ ")", this.direction.x+ this.position.x+15, this.direction.y + this.position.y+15)
 
         stroke('pink');
         strokeWeight(1);

@@ -14,7 +14,7 @@ class Particle{
 
     draw = function(){
         push();
-        stroke(51);
+        stroke(255);
         // ellipse(this.position.x, this.position.y, 2, 2)
         strokeWeight(1);
         fill(255);

@@ -1,6 +1,4 @@
 fastIntersection = function(x1, y1, x2, y2, x3, y3, x4, y4){
-// fastIntersection = function(x3, y3, x4, y4, x1, y1, x2, y2){
-
     let x1lo, x1hi, y1lo, y1hi;
 
     let Ax = x2-x1;
@@ -20,15 +18,19 @@ fastIntersection = function(x1, y1, x2, y2, x3, y3, x4, y4){
         //if x1hi is smaller than x4 the line segment doesn't reach. x1 is to the left of x4
         //if x3 (the larger) is to the left of X1 (low) it doesn't reach and no intersection
         //x1,x2 are both to the left of x3,x4
-        if(x1hi < x4 || x3 < x1lo){
+        if(x1hi < x4 || x3 < x1lo) {
             return [];
         }
+    }
+    else {
         //if x1 high (right) is smaller than x3 (larger than x4) it doesn't reach and no intersection
         //if x1 low is larger than x4, the smaller - it (x1,x2) is to the right of both x3,x4.
         if(x1hi < x3 || x4 < x1lo){
             return [];
         }
     }
+
+
 
     /* Y bound box test*/
     let Ay = y2-y1;
@@ -60,21 +62,23 @@ fastIntersection = function(x1, y1, x2, y2, x3, y3, x4, y4){
         return [];
     }
 
-    let alpha_numerator = By*Cx-Bx*Cy;  //alpha numerator
-    if (denominator > 0){
-        if(alpha_numerator < 0 || alpha_numerator > denominator){
+    let alpha_numerator = By*Cx - Bx*Cy;  //alpha numerator
+    if (denominator > 0) {
+        if (alpha_numerator < 0 || alpha_numerator > denominator) {
             return [];
         }
+    } else {
         if( alpha_numerator > 0 || alpha_numerator < denominator){
             return [];
         }
     }
 
     let beta_numerator = Ax*Cy-Ay*Cx;
-    if (denominator > 0){
-        if(beta_numerator < 0 || beta_numerator > denominator){
+    if (denominator > 0) {
+        if (beta_numerator < 0 || beta_numerator > denominator) {
             return []
         }
+    } else {
         if( beta_numerator > 0 || beta_numerator < denominator){
             return [];
         }
@@ -90,18 +94,9 @@ fastIntersection = function(x1, y1, x2, y2, x3, y3, x4, y4){
     offset = SAME_SIGNS(num, denominator) ? denominator/2: -(denominator/2);
     intersection_point[1] = y1+(num+offset)/denominator;
 
-    //now we can check the division of the denominator for alpha and beta bounding
-    //if p3,p4 casts onto p1,p2 regardless of length check only
-    if(alpha_numerator/denominator < 0 || alpha_numerator/denominator > 1){
-        return [];
-    }
-    //if p1,p2 casts onto p3,p4 regardless of length check only
-    if(beta_numerator/denominator < 0 || beta_numerator/denominator > 1){
-        return [];
-    }
     return intersection_point;
 }
 
 SAME_SIGNS = function(a, b){
-    return (a >= 0 && b >= 0) || (a < 0 && b <0) ;
+    return (a >= 0 && b >= 0) || (a < 0 && b <0);
 }

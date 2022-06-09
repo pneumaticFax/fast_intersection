@@ -9,12 +9,12 @@ class Boundary{
         push();
         strokeWeight(1);
 
-        stroke('green');
+        stroke('lightgreen');
         line(this.point1.x, this.point1.y, this.point2.x, this.point2.y);
 
         strokeWeight(2);
         stroke(0);
-        fill('green');
+        fill('lightgreen');
         text("P1: (" + this.point1.x + ", " + this.point1.y + ")", this.point1.x+15, this.point1.y+15)
         text("P2: (" + this.point2.x + ", " + this.point2.y+ ")", this.point2.x+15, this.point2.y+15)
 
