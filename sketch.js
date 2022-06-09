@@ -2,6 +2,8 @@
 let ray;
 let bound;
 let bound2;
+let bound3;
+let bound4;
 let particle;
 
 function setup() {
