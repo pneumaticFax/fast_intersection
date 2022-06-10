@@ -21,6 +21,7 @@ function setup() {
 
 function draw(){
     background(51);
+    drawFPS();
     bound.draw();
     bound2.draw();
     bound3.draw();
@@ -49,7 +50,7 @@ function draw(){
     }
 }
 
-function drawPoint(x_coord, y_coord){
+function drawPoint(x_coord, y_coord) {
     push();
 
     stroke('lightblue');
@@ -59,9 +60,18 @@ function drawPoint(x_coord, y_coord){
     strokeWeight(2);
     stroke(0);
     fill('lightblue');
-    text("P*: (" + x_coord.toFixed(2) + ", " + y_coord.toFixed(2) + ")", x_coord+30, y_coord+30)
+    text("P*: (" + x_coord.toFixed(2) + ", " + y_coord.toFixed(2) + ")", x_coord + 30, y_coord + 30)
 
     pop();
 
 
+}
+
+function drawFPS(){
+    // Draw FPS (rounded to 2 decimal places) at the bottom left of the screen
+    let fps = frameRate();
+    fill(255);
+    stroke(0);
+    text("FPS: " + fps.toFixed(2), 10,   15);
+    let update = [];
 }
